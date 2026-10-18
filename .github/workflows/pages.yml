@@ -23,6 +23,9 @@ jobs:
           mkdir -p _site
           cp index.html .nojekyll _site/
           base64 -d assets.tar.gz.b64 | tar xzf - -C _site
+          mkdir -p _site/turn-newsletter-into-podcast
+          cp turn-newsletter-into-podcast/index.html _site/turn-newsletter-into-podcast/
+          cat newsletter-page.tar.gz.b64.part-* | base64 -d | tar xzf - -C _site
           ls -R _site
       - uses: actions/configure-pages@v5
         with:
